@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  app:
+    image: thiagosena/imersao-fsfc2-challenge1:1.0
+    container_name: challenge1
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/go/src/

@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    background: url("minions-wallpaper.jpg") no-repeat center center fixed;
+    background-size: auto;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+.title{
+    background: rgba(0, 0, 0, 0.2);
+    margin: 50px auto;
+    width: 500px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 10px 5px 5px #000000;
+    color: #ffe000;
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+}
+h1 {
+    text-align: center;
+    font-size: 60px;
+}
