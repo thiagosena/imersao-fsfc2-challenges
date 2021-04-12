@@ -6,5 +6,5 @@ services:
     container_name: challenge1
     ports:
       - 8000:8000
-    volumes:
-      - .:/go/src/
+        #    volumes:
+        #- .:/go/src/
