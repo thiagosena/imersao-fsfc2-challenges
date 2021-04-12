@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  app:
+    build: .
+    container_name: nest-api
+    entrypoint: ./.docker/entrypoint.sh
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/home/node/app
+    depends_on:
+      - db
+
+  db:
+    image: mongo:4.4.4
+    command: mongod --auth
+    container_name: nest-api-db
+    ports:
+      - 27010:27017
+    volumes:
+      - ./.docker/dbdata:/data/db
+      - ./.docker/mongo:/docker-entrypoint-initdb.d
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: nest

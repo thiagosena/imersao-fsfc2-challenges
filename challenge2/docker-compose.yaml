@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+  back:
+    image: thiagosena/challenge2-fsfc2-backend:1.0
+    container_name: nest-api
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+  
+  front:
+    image: thiagosena/challenge2-fsfc2-frontend:1.0
+    container_name: react-frontend
+    ports:
+      - 3001:3000
+
+  db:
+    image: mongo:4.4.4
+    command: mongod --auth
+    container_name: nest-api-db
+    ports:
+      - 27010:27017
+    volumes:
+      - mongo-fsfc2-data:/data/db
+      - ./nest-api/.docker/mongo:/docker-entrypoint-initdb.d
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: nest
+
+volumes:
+  mongo-fsfc2-data:
