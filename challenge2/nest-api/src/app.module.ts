@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { MongooseModule } from '@nestjs/mongoose';
+//import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { RoutesModule } from './routes/routes.module';
@@ -9,9 +9,9 @@ import { RoutesModule } from './routes/routes.module';
   imports: [
     ConfigModule.forRoot(),
     RoutesModule,
-    MongooseModule.forRoot(process.env.MONGO_DNS, {
-      useNewUrlParser: true,
-    }),
+    // MongooseModule.forRoot(process.env.MONGO_DNS, {
+    //   useNewUrlParser: true,
+    // }),
   ],
   controllers: [AppController],
   providers: [AppService],

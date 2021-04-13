@@ -2,10 +2,7 @@ version: '3'
 
 services:
   app:
-    build: .
+    image: thiagosena/challenge2-fsfc2-frontend:2.0
     container_name: react-frontend
-    entrypoint: ./.docker/entrypoint.sh
     ports:
-      - 3001:3000
-    volumes:
-      - .:/home/node/app
+      - 3001:80

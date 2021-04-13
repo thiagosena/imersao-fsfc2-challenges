@@ -1,37 +1,44 @@
-import { Prop, raw, Schema, SchemaFactory } from '@nestjs/mongoose';
+//import { Prop, raw, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
 export type RouteDocument = Route & Document;
 
-@Schema()
+//@Schema()
 export class Route {
-  @Prop()
+  constructor(_id, title, startPosition, endPosition) {
+    this._id = _id;
+    this.title = title;
+    this.startPosition = startPosition;
+    this.endPosition = endPosition;
+  }
+
+  //@Prop()
   _id: string;
 
-  @Prop()
+  //@Prop()
   title: string;
 
-  @Prop(
-    raw({
-      lat: { type: Number },
-      lng: { type: Number },
-    }),
-  )
+  // @Prop(
+  //   raw({
+  //     lat: { type: Number },
+  //     lng: { type: Number },
+  //   }),
+  // )
   startPosition: {
     lat: number;
     lng: number;
   };
 
-  @Prop(
-    raw({
-      lat: { type: Number },
-      lng: { type: Number },
-    }),
-  )
+  // @Prop(
+  //   raw({
+  //     lat: { type: Number },
+  //     lng: { type: Number },
+  //   }),
+  // )
   endPosition: {
     lat: number;
     lng: number;
   };
 }
 
-export const RouteSchema = SchemaFactory.createForClass(Route);
+//export const RouteSchema = SchemaFactory.createForClass(Route);

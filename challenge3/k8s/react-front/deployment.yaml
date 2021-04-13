@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react-front
+  template:
+    metadata:
+      labels:
+        app: react-front
+    spec:
+      containers:
+        - name: react-front
+          image: thiagosena/challenge2-fsfc2-frontend:2.0
+          ports:
+            - containerPort: 80
